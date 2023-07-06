@@ -1,3 +1,10 @@
+# TODOs
+
+- [] fix nav menu for mobile
+- [] add search
+- [] add pagination to works
+- [] add GSAP animation btw detail & card page
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
