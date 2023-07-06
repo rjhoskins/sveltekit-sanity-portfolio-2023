@@ -75,7 +75,7 @@
 					<!-- else content here -->
 				{/if}
 			</button>
-			<nav class="list-nav card p-4 w-64 shadow-xl" data-menu="menuz">
+			<nav class="list-nav card p-4 shadow-xl" data-menu="menuz">
 				<ul>
 					{#each links as link}
 						<li><a class="!rounded-lg" href={link.href}>{link.text}</a></li>
