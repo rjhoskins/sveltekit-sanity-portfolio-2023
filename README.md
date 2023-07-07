@@ -1,9 +1,12 @@
 # TODOs
 
-- [] fix nav menu for mobile
+- [] fix for mobile nav going off screen issue
+  - [x] absolute position fix
+  - [] rework to be flexbox container
 - [] add search
 - [] add pagination to works
 - [] add GSAP animation btw detail & card page
+- [] add Types
 
 # create-svelte
 
