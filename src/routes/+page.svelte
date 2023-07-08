@@ -1,5 +1,5 @@
 <script>
-	import BuiltWith from "../components/BuiltWith.svelte";
+	import BuiltWith from "$/components/BuiltWith.svelte";
 
 </script>
 <!-- YOU CAN DELETE EVERYTHING IN THIS PAGE -->

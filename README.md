@@ -1,8 +1,10 @@
 # TODOs
 
-- [] fix for mobile nav going off screen issue
+- [x] fix for mobile nav going off screen issue
   - [x] absolute position fix
-  - [] rework to be flexbox container
+  - [x] rework to be flexbox container (worked)
+- [] make card text regular text
+- [] make details page look better
 - [] add search
 - [] add pagination to works
 - [] add GSAP animation btw detail & card page

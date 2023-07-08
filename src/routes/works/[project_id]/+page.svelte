@@ -43,7 +43,7 @@
 			{/each}
 			<li></li>
 		</ul> -->
-		<p class="mt-2">{project.techTags.join(' | ')}</p>
+		<p class="mt-2">{project.techTags?.join(' | ')}</p>
 	</div>
 </div>
 

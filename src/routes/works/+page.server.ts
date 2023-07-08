@@ -15,12 +15,14 @@ export const load = (async ({ params }) => {
     liveUrl,
     company,
     description,
-    subText
+    subText,
+    techTags
+    
   }`);
 
   return {
-    Title: "Works or samples",
-    subTitle: "from codebases I've worked with",
+    title: "Works or samples",
+    subTitle: "codebases I've created or worked with",
     projects: data
   };
 }) satisfies PageServerLoad;

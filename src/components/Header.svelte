@@ -29,7 +29,7 @@
 		<strong class="text-xl uppercase"><a class="!rounded-lg" href="/">{`RJ}{`}</a></strong>
 	</svelte:fragment>
 	<svelte:fragment>
-		<div class=" flex justify-end items-center">
+		<div class=" flex justify-end md:justify-center items-center">
             <div class="relative  justify-self-center hidden md:block">
                 <nav class="">
                     <ul class="flex gap-4 justify-center text-xl font-semibold">
