@@ -31,11 +31,11 @@
 				delay: 100 * delay,
 				easing: cubicOut
 			}}
-			class="card card-hover max-w-md rounded-md overflow-hidden mx-auto  !border ![&_*]:border-primary-900"
+			class="card card-hover max-w-md rounded-md overflow-hidden mx-auto shadow-md !border dark:border-transparent "
 		>
 			<a
 				href={`/works/${_id}`}
-				class=" decoration-transparent text-inherit h-full flex gap-y-4 flex-col"
+				class=" text-base !text-base-token dark:!text-dark-token decoration-transparent h-full flex gap-y-4 flex-col"
 			>
 				<header class="card-header p-0 ">
 					<img src={imageUrl} alt={name} srcset="" class="aspect-video" />

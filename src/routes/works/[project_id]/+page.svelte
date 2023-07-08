@@ -33,7 +33,7 @@
 	</div>
 	<div>
 		<h6 class=" text-center bg-transparent">description</h6>
-		<pre class="mt-2 !bg-transparent font-sans">{project.description}</pre>
+		<pre class="mt-2 !bg-transparent !font-token !text-base-token dark:!text-dark-token ">{project.description}</pre>
 	</div>
 	<div class="text-center">
 		<h6>tech stack</h6>
