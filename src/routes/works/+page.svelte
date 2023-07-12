@@ -31,7 +31,7 @@
 		offset: 0,
 		limit: 5,
 		size: 5,
-		amounts: [1, 2, 5, 10]
+		amounts: [1, 2, 6, 10]
 	};
 	$: paginator.size = filteredProjects.length;
 	// $: console.log(filteredProjects);
