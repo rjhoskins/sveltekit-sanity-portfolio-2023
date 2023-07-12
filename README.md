@@ -4,10 +4,11 @@
   - [x] absolute position fix
   - [x] rework to be flexbox container (worked)
 - [x] add search
-- [] make card text regular text
-- [] make details page look better
-- [] add pagination to works
+- [x] make card text regular text
+- [x] make details page look better
+- [x] add pagination to works
 - [] add GSAP animation btw detail & card page
+- [] add portable text & update details page
 - [] add Types
 
 # create-svelte

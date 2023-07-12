@@ -16,7 +16,8 @@ export const load = (async ({ params }) => {
       loomDemoUrl,
       designUrl,
       liveUrl,
-      description,
+      shortDescription,
+      content,
       techTags
       
     }[0]`);

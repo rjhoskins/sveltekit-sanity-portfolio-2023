@@ -5,34 +5,43 @@
 	import { quintOut } from 'svelte/easing';
 	import { crossfade } from 'svelte/transition';
 	import { onDestroy } from 'svelte';
+	import { Paginator } from '@skeletonlabs/skeleton';
+	import { page } from '$app/stores';
 
 	export let data: PageData;
 
 	const { title, subTitle, projects } = data;
 
 	let searchText = '';
-	
+
 	const searchProjects = projects.map((project: any) => ({
 		...project,
-		searchTerms: `${project.name} ${project.description.toString()} ${project.techTags?.join(
+		searchTerms: `${project.name} ${project.shortDescription?.toString()} ${project.techTags?.join(
 			' '
-			)}`.toLowerCase()
-		}));
-		
-	
-	
+		)}`.toLowerCase()
+	}));
+
 	//computed
-	$: filteredProjects = searchProjects.filter((project) => project.searchTerms.includes((searchText || "").toLowerCase()));
+	$: filteredProjects = searchProjects.filter((project: { searchTerms: string | string[] }) =>
+		project.searchTerms.includes((searchText || '').toLowerCase())
+	);
+
+	// PaginatorSettings
+	let paginator = {
+		offset: 0,
+		limit: 5,
+		size: 5,
+		amounts: [1, 2, 5, 10]
+	};
+	$: paginator.size = filteredProjects.length;
 	// $: console.log(filteredProjects);
-	
-	
 </script>
 
 <div class="space-y-4 p-4">
 	<h1 class="my-4 text-center">{title}</h1>
 	<h3 class=" !font-thin !text-sm text-center">{subTitle}</h3>
-	<label class="label">
-		<p class="m-2">search for something I've done or worked with</p>
+	<p class="m-2">search for something I've done or worked with</p>
+	<label class="label relative !mt-0">
 		<!-- (input here) -->
 		<input
 			bind:value={searchText}
@@ -41,10 +50,38 @@
 			type="text"
 			placeholder="input text"
 		/>
+		{#if true}
+			<button
+				on:click={() => (searchText = '')}
+				class="absolute -translate-x-4 right-0 top-1/2 -translate-y-1/2 !mt-0"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke-width="1.5"
+					stroke="currentColor"
+					class="w-6 h-6"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+					/>
+				</svg>
+			</button>
+		{/if}
 	</label>
 
+	<Paginator
+		bind:settings={paginator}
+		showFirstLastButtons={false}
+		showPreviousNextButtons={true}
+	/>
 	<div class="w-full text-token grid grid-cols-fluid align-items-center gap-4 sizes">
-		{#each filteredProjects as project, i (project._id)}
+		{#each filteredProjects.slice(paginator.offset * paginator.limit,
+		 paginator.offset * paginator.limit + paginator.limit)
+		  as project, i (project._id)} 
 			<Project {project} delay={i} />
 		{/each}
 

@@ -12,9 +12,9 @@
 </svg>Back</a>
 
 <div class="p-4 space-y-4  container mx-auto flex flex-col justify-center items-center">
-	<h1 class="sr-only">{`${project.name} ${project.description}`}</h1>
-	<h2 class=" text-center">{project.name}</h2>
-	<img src={project.imageUrl} alt={project.name} srcset="" class="aspect-video md:max-w-fit" />
+	<h1 class="sr-only">{`${project.name} ${project.shortDescription}`}</h1>
+	<h2 class=" text-center title" data-flip-id="title-{project._id}">{project.name}</h2>
+	<img src={project.imageUrl} alt={project.name} srcset="" class="aspect-video cover md:max-w-fit" data-flip-id="cover-{project._id}" />
 	<div class="">
 		<div class="flex justify-center gap-4">
 			{#if project.sandboxUrl}
@@ -33,7 +33,7 @@
 	</div>
 	<div>
 		<h6 class=" text-center bg-transparent">description</h6>
-		<pre class="mt-2 !bg-transparent !font-token !text-base-token dark:!text-dark-token ">{project.description}</pre>
+		<pre class="mt-2 !bg-transparent !font-token !text-base-token dark:!text-dark-token ">{project.shortDescription}</pre>
 	</div>
 	<div class="text-center">
 		<h6>tech stack</h6>

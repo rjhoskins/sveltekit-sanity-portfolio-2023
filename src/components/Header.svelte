@@ -3,7 +3,7 @@
 
 	import '@skeletonlabs/skeleton/styles/all.css';
 	import '../app.postcss';
-	import { AppShell, AppBar, LightSwitch, menu } from '@skeletonlabs/skeleton';
+	import { AppBar, LightSwitch, menu } from '@skeletonlabs/skeleton';
 
 	$: menuIsOpen = false;
 	let menuExample: boolean = true;
@@ -20,6 +20,11 @@
 		{
 			text: 'home',
 			href: '/'
+		},
+		{
+			text: 'upwork',
+			href: 'https://www.upwork.com/freelancers/~010303de46dda7facc?viewMode=1',
+
 		}
 	];
 </script>
@@ -34,8 +39,11 @@
                 <nav class="">
                     <ul class="flex gap-4 justify-center text-xl font-semibold">
                         {#each links as link}
-                            <li><a class="!rounded-lg" href={link.href}>{link.text}</a></li>
-                            <!-- content here -->
+                            <li>
+                                {#if link.iconLinkText}
+                                <img src={link.iconLinkText} alt={link.text} srcset="">
+                                {/if}                                
+                                <a class="!rounded-lg" href={link.href}>{link.text}</a></li>                           
                         {/each}
                     </ul>
                 </nav>
@@ -79,8 +87,11 @@
                 <nav class="list-nav card p-4 shadow-xl top-[35px] right-0"  data-menu="menuz">
                     <ul>
                         {#each links as link}
-                            <li><a class="!rounded-lg" href={link.href}>{link.text}</a></li>
-                            <!-- content here -->
+                            <li>
+                                {#if link.iconLinkText}
+                                <img src={link.iconLinkText} alt={link.text} srcset="">
+                                {/if}                                
+                                <a class="!rounded-lg" href={link.href}>{link.text}</a></li>                           
                         {/each}
                     </ul>
                 </nav>

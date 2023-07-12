@@ -14,7 +14,7 @@ export const load = (async ({ params }) => {
     designUrl,
     liveUrl,
     company,
-    description,
+    shortDescription,
     subText,
     techTags
     

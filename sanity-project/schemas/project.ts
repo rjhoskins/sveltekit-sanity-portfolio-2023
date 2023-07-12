@@ -9,14 +9,30 @@ export default {
         title: 'Project Name'
       },
       {
-        name: 'orderRank',
-        type: 'string',
-        title: 'Order Rank'
-      },
-      {
         name: 'subText',
         type: 'string',
         title: 'Sub Text'
+      },
+      {
+        name: 'img',
+        type: 'image',
+        title: 'Image or gif from Sanity'
+      },
+      {
+        title: 'Short Description',
+        name: 'shortDescription',
+        type: 'string'
+      },
+      {
+        title: 'Description',
+        name: 'description',
+        type: 'text'
+      },
+      {
+        title: 'Content', 
+        name: 'content',
+        type: 'array', 
+        of: [{type: 'block'}]
       },
       {
         name: 'company',
@@ -43,16 +59,7 @@ export default {
         type: 'url',
         title: 'Live Link'
       },
-      {
-        name: 'img',
-        type: 'image',
-        title: 'Image or gif from Sanity'
-      },
-      {
-        title: 'Description',
-        name: 'description',
-        type: 'text'
-      },
+
       {
         title: 'Tech Tags',
         name: 'techTags',
@@ -61,6 +68,11 @@ export default {
         // options: {
         //   layout: 'tags'
         // }
+      },
+      {
+        name: 'orderRank',
+        type: 'string',
+        title: 'Order Rank'
       },
 
     ]
