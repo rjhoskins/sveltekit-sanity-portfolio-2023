@@ -73,17 +73,24 @@
 		{/if}
 	</label>
 
-	<Paginator
-		bind:settings={paginator}
-		showFirstLastButtons={false}
-		showPreviousNextButtons={true}
-	/>
 	<div class="w-full text-token grid grid-cols-fluid align-items-center gap-4 sizes">
-		{#each filteredProjects.slice(paginator.offset * paginator.limit,
-		 paginator.offset * paginator.limit + paginator.limit)
-		  as project, i (project._id)} 
-			<Project {project} delay={i} />
-		{/each}
+		{#if filteredProjects.length === 0}
+			<!-- content here -->
+			<div class="text-center">
+				<h6>hmmm... looks like I haven't used that tool to build a web or mobile experience yet</h6>
+				<p>if you're looking for my sweetspot try: app, next, tailwind, T3, or svelte (yes plz!)</p>
+			</div>
+		{:else}
+			<Paginator
+				bind:settings={paginator}
+				showFirstLastButtons={false}
+				showPreviousNextButtons={true}
+			/>
+			<!-- else content here -->
+			{#each filteredProjects.slice(paginator.offset * paginator.limit, paginator.offset * paginator.limit + paginator.limit) as project, i (project._id)}
+				<Project {project} delay={i} />
+			{/each}
+		{/if}
 
 		<!-- {#each getFilteredProjects(searchProjects, searchText) as project, i}
 			<div class="border border-red-700">
