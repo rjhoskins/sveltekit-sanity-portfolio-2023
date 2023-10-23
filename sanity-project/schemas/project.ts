@@ -42,7 +42,7 @@ export default {
       {
         name: 'sandboxUrl',
         type: 'url',
-        title: 'Sandbox Demo Link'
+        title: 'Sandbox/Staging/Test Demo Link'
       },
       {
         name: 'loomDemoUrl',

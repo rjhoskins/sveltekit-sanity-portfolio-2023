@@ -31,7 +31,7 @@
 		offset: 0,
 		limit: 5,
 		size: 5,
-		amounts: [1, 2, 6, 10]
+		amounts: [3, 5, 8, 13, 21],
 	};
 	$: paginator.size = filteredProjects.length;
 	// $: console.log(filteredProjects);
@@ -80,7 +80,7 @@
 		 />
 	{/if}
 
-	<div class="w-full text-token grid grid-cols-fluid align-items-center gap-4 sizes">
+	<div class="w-full text-token grid grid-cols-fluid align-items-center gap-4">
 		{#if filteredProjects.length === 0}
 		<!-- content here -->
 		<div class="text-center">

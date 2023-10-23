@@ -1,9 +1,11 @@
 <script lang="ts">
 	import type { PageData } from './$types';
+	import {PortableText} from '@portabletext/svelte'
 
 
 	export let data: PageData;
 	const { hello, project } = data;
+	console.log(project);
 
 </script>
 <a class="m-4 float-left" href="/works">
@@ -14,7 +16,7 @@
 <div class="p-4 space-y-4  container mx-auto flex flex-col justify-center items-center">
 	<h1 class="sr-only">{`${project.name} ${project.shortDescription}`}</h1>
 	<h2 class=" text-center title" data-flip-id="title-{project._id}">{project.name}</h2>
-	<img src={project.imageUrl} alt={project.name} srcset="" class="aspect-video cover md:max-w-fit" data-flip-id="cover-{project._id}" />
+	<img src={project.imageUrl} alt={project.name} srcset="" class="aspect-video cover md:max-w-md" data-flip-id="cover-{project._id}" />
 	<div class="">
 		<div class="flex justify-center gap-4">
 			{#if project.sandboxUrl}
@@ -33,9 +35,9 @@
 	</div>
 	<div>
 		<h6 class=" text-center bg-transparent">description</h6>
-		<pre class="mt-2 !bg-transparent !font-token !text-base-token dark:!text-dark-token ">{project.shortDescription}</pre>
+		<div class="mt-2"><PortableText  value={project.content} /></div>
 	</div>
-	<div class="text-center">
+	<div class="text-center p">
 		<h6>tech stack</h6>
 		<!-- <ul class="flex gap-2 flex-wrap justify-center items-center">
 			{#each project.techTags as tag}

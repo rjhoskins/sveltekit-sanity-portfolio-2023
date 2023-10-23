@@ -1,4 +1,9 @@
-# TODOs
+
+# create-svelte
+
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+
+### TODOs
 
 - [x] fix for mobile nav going off screen issue
   - [x] absolute position fix
@@ -7,13 +12,13 @@
 - [x] make card text regular text
 - [x] make details page look better
 - [x] add pagination to works
-- [] add GSAP animation btw detail & card page
-- [] add portable text & update details page
-- [] add Types
-
-# create-svelte
-
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+- [x] add latest works
+- [x] fix empty init of search results
+- [ ] add tech carousel to bottom of cards
+- [ ] add fun missing results
+- [ ] add GSAP animation btw detail & card page
+- [ ] add portable text & update details page
+- [ ] add Types
 
 ## Creating a project
 
