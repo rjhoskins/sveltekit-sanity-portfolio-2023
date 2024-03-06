@@ -29,12 +29,11 @@
 	// PaginatorSettings
 	let paginator = {
 		offset: 0,
-		limit: 5,
-		size: 5,
-		amounts: [3, 5, 8, projects.length],
+		limit: 8,
+		size: Math.floor(projects.length/2),
+		amounts: [Math.floor(projects.length/4),Math.floor(projects.length/2), projects.length],
 	};
 	$: paginator.size = filteredProjects.length;
-	// $: console.log(filteredProjects);
 </script>
 
 <div class="space-y-4 p-4">
