@@ -5,7 +5,7 @@
 
 	export let data: PageData;
 	const { hello, project } = data;
-	console.log(project);
+	// console.log(project);
 
 </script>
 <a class="m-4 float-left" href="/works">
