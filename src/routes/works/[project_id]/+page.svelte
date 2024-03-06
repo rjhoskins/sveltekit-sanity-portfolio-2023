@@ -35,7 +35,9 @@
 	</div>
 	<div>
 		<h6 class=" text-center bg-transparent">description</h6>
-		<div class="mt-2"><PortableText  value={project.content} /></div>
+		{#if project.content}
+		<div class="mt-2"><PortableText  value={project?.content} /></div>
+		{/if}
 	</div>
 	<div class="text-center p">
 		<h6>tech stack</h6>

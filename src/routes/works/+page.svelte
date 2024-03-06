@@ -31,7 +31,7 @@
 		offset: 0,
 		limit: 5,
 		size: 5,
-		amounts: [3, 5, 8, 13, 21],
+		amounts: [3, 5, 8, projects.length],
 	};
 	$: paginator.size = filteredProjects.length;
 	// $: console.log(filteredProjects);
@@ -50,7 +50,7 @@
 			type="text"
 			placeholder="input text"
 		/>
-		{#if true}
+		{#if searchText.length > 0}
 			<button
 				on:click={() => (searchText = '')}
 				class="absolute -translate-x-4 right-0 top-1/2 -translate-y-1/2 !mt-0"
@@ -94,14 +94,5 @@
 			{/each}
 		{/if}
 
-		<!-- {#each getFilteredProjects(searchProjects, searchText) as project, i}
-			<div class="border border-red-700">
-				<Project {project} delay={i} />
-			</div>
-		{/each} -->
 	</div>
 </div>
-
-<!-- <pre>
-{JSON.stringify(filteredProjects, null, 2)}
-</pre> -->
