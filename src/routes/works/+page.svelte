@@ -1,18 +1,15 @@
 <script lang="ts">
 	import Project from '$/components/Project.svelte';
 	import type { PageData } from './$types';
-	import { flip } from 'svelte/animate';
-	import { quintOut } from 'svelte/easing';
-	import { crossfade } from 'svelte/transition';
-	import { onDestroy } from 'svelte';
+	import {  onMount } from 'svelte';
 	import { Paginator } from '@skeletonlabs/skeleton';
-	import { page } from '$app/stores';
 
 	export let data: PageData;
 
 	const { title, subTitle, projects } = data;
 
 	let searchText = '';
+	let params: URLSearchParams;
 
 	const searchProjects = projects.map((project: any) => ({
 		...project,
@@ -21,12 +18,11 @@
 		)}`.toLowerCase()
 	}));
 
-	//computed
+	
 	$: filteredProjects = searchProjects.filter((project: { searchTerms: string | string[] }) =>
 		project.searchTerms.includes((searchText || '').toLowerCase())
 	);
 
-	// PaginatorSettings
 	let paginator = {
 		offset: 0,
 		limit: 8,
@@ -34,6 +30,28 @@
 		amounts: [Math.floor(projects.length/4),Math.floor(projects.length/2), projects.length],
 	};
 	$: paginator.size = filteredProjects.length;
+
+	onMount(() =>{
+		parseUrl()
+		document.getElementById('search').focus()
+	})
+
+	function handleChange(e){
+		const updatedSearchText = e.target.value.toString()
+		params.set('q',updatedSearchText)
+		const noRefresh = `${window.location.origin}${window.location.pathname}?${params.toString()}` 
+		window.history.replaceState(null, null, noRefresh)
+	}
+	function handleClear(){
+		searchText = ''
+		const noRefresh = `${window.location.origin}${window.location.pathname}` 
+		window.history.replaceState(null, null, noRefresh)
+	}
+
+	function parseUrl(){
+		params = new URLSearchParams(window.location.search)
+		if (params?.size > 0) searchText = params.get('q') ?? '';
+	}
 </script>
 
 <div class="space-y-4 p-4">
@@ -43,15 +61,17 @@
 	<label class="label relative !mt-0">
 		<!-- (input here) -->
 		<input
+			id="search"
 			bind:value={searchText}
+			on:keyup={(e) => handleChange(e)}
 			class="input"
 			title="Input (text)"
 			type="text"
-			placeholder="input text"
+			placeholder="search..."
 		/>
 		{#if searchText.length > 0}
 			<button
-				on:click={() => (searchText = '')}
+				on:click={handleClear}
 				class="absolute -translate-x-4 right-0 top-1/2 -translate-y-1/2 !mt-0"
 			>
 				<svg
