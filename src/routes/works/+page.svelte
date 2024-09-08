@@ -25,7 +25,7 @@
 
 	let paginator = {
 		offset: 0,
-		limit: 8,
+		limit: Math.floor(projects.length/2),
 		size: Math.floor(projects.length/2),
 		amounts: [Math.floor(projects.length/4),Math.floor(projects.length/2), projects.length],
 	};
@@ -34,7 +34,8 @@
 	onMount(() =>{
 		parseUrl()
 		document.getElementById('search').focus()
-		paginator.size = Math.floor(projects.length/2)
+		console.log('set size to', Math.floor(projects.length/2));
+		
 	})
 
 	function handleChange(e){
