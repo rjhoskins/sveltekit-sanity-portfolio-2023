@@ -34,6 +34,7 @@
 	onMount(() =>{
 		parseUrl()
 		document.getElementById('search').focus()
+		paginator.size = Math.floor(projects.length/2)
 	})
 
 	function handleChange(e){
