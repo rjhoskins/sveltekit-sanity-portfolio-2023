@@ -5,7 +5,8 @@ import { vitePreprocess } from '@sveltejs/kit/vite';
 const config = {
 	kit: {
 		alias: {
-			$: 'src'
+			$: 'src',
+			"@/lib": "./src/lib/",
 		},
 		adapter: adapter()
 	},
